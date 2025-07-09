@@ -1,0 +1,12 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+.font-barriecito {
+  font-family: "Barriecito", cursive;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
