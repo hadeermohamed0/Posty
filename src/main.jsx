@@ -2,15 +2,18 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
-import NavBar from "./components/navBar.jsx";
-import LoginForm from "./components/loginForm.jsx";
-import SigninForm from "./components/signinForm.jsx";
 import { BrowserRouter } from "react-router-dom";
+import { PostProvider } from "./context/PostContext.jsx";
+import { AuthProvider } from "./context/AuthContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <PostProvider>
+        <AuthProvider>
+          <App />
+        </AuthProvider>
+      </PostProvider>
     </BrowserRouter>
   </StrictMode>
 );

@@ -1,26 +1,27 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import LoginForm from "./components/loginForm";
 import { Route, Routes } from "react-router-dom";
-import SigninForm from "./components/signinForm";
+import LoginForm from "./pages/loginForm";
+import SignUpForm from "./pages/signupForm";
 import NavBar from "./components/navBar";
-import Home from "./components/Home";
+import Home from "./pages/Home";
+import Allpost from "./components/Allpost";
+
+import { Toaster } from "react-hot-toast";
+import MyPosts from "./components/Myposts";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <div>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-
-          <Route path="/signup" element={<SigninForm />} />
-          <Route path="/login" element={<LoginForm />} />
-        </Routes>
-      </div>
+      <NavBar />
+      <Toaster position="bottom-right" />
+      <Routes>
+        <Route path="/" element={<Home />}>
+          <Route index element={<Allpost />} />
+          <Route path="/Myposts" element={<MyPosts/>} />
+        </Route>
+        <Route path="/signup" element={<SignUpForm />} />
+        <Route path="/login" element={<LoginForm />} />
+      </Routes>
     </>
   );
 }

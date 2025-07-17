@@ -1,11 +1,14 @@
-import React from "react";
-import { Link } from "react-router";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useAuth } from "../context/AuthContext";
 
 const NavBar = () => {
+  const { currentUser } = useAuth();
   return (
-    <div className="fixed top-0 left-0 w-full z-50  ">
+    <div className="fixed top-0 left-0 w-full z-50">
       <div className="navbar bg-blue-950">
-        <div className="flex-1  ">
+        <div className="flex-1">
           <div className="flex gap-1.5">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -22,26 +25,28 @@ const NavBar = () => {
               />
             </svg>
 
-            <Link to="/" className=" text-4xl text-amber-400  font-barriecito ">
+            <Link to="/" className="text-4xl text-amber-400 font-barriecito">
               Po<span className="text-pink-700">sty</span>
             </Link>
           </div>
         </div>
 
-        <div className="space-x-4">
-          <Link
-            to="/login"
-            className="text-white hover:text-amber-500 font-medium"
-          >
-            Login
-          </Link>
-          <Link
-            to="/signup"
-            className="bg-amber-400 text-white px-4 py-2 rounded hover:bg-amber-500"
-          >
-            Sign Up
-          </Link>
-        </div>
+        {!currentUser && (
+          <div className="space-x-4">
+            <Link
+              to="/login"
+              className="text-white hover:text-amber-500 font-medium"
+            >
+              Login
+            </Link>
+            <Link
+              to="/signup"
+              className="bg-amber-400 text-white px-4 py-2 rounded hover:bg-amber-500"
+            >
+              Sign Up
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );
