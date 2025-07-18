@@ -4,7 +4,6 @@ import { usePost } from "../context/PostContext";
 import { useAuth } from "../context/AuthContext";
 
 function PostCard({ post, onDelete }) {
-
   const { text, imageUrl, userName, createdAt, id } = post;
   const { handleEdit } = usePost();
   const [showMenu, setShowMenu] = useState(false);
@@ -36,7 +35,7 @@ function PostCard({ post, onDelete }) {
               </button>
               <button
                 onClick={() => {
-                  onDelete(); 
+                  onDelete();
                   setShowMenu(false);
                 }}
                 className="p-2 rounded hover:bg-red-100"

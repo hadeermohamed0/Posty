@@ -1,5 +1,7 @@
 {
   "projects": {
     "default": "posty-78d66"
-  }
+  },
+  "targets": {},
+  "etags": {}
 }

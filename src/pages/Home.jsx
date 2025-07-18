@@ -17,21 +17,12 @@ import { getAuth } from "firebase/auth";
 import { Link, Outlet } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 
-import { useEffect, useRef } from "react";
-
 function Home() {
-  const { showForm, toggleForm, editPost } = usePost();
-  const { posts, loading, handleDelete, refetch } = useFetchPosts();
+  const { posts, loading, toggleForm, showForm, editPost } = usePost();
+
   const auth = getAuth();
   const currentUser = auth.currentUser;
 
-  const wasOpen = useRef(false);
-  useEffect(() => {
-    if (wasOpen.current && !showForm) {
-      refetch();
-    }
-    wasOpen.current = showForm;
-  }, [showForm]);
   return (
     <div className="flex h-screen overflow-hidden">
       <Sidebar></Sidebar>
@@ -79,7 +70,7 @@ function Home() {
                     <XMarkIcon className="w-6 h-6" />
                   </button>
                 </div>
-                <PostForm editPost={editPost} />
+                <PostForm />
               </div>
             </div>
           )}

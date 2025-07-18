@@ -7,16 +7,19 @@ import { useFetchPosts } from "../hooks/useFetchPosts";
 import { getAuth } from "firebase/auth";
 
 export default function Allpost() {
+ const { posts, handleDelete,  } = useFetchPosts(null, () => {});
 
-  const { posts,  handleDelete } = useFetchPosts();
   
+
   return (
     <>
       {posts.map((post) => (
         <PostCard
           key={post.id}
           post={post}
-          onDelete={() => handleDelete(post.id)}
+          onDelete={async () => {
+            handleDelete(post.id);
+          }}
         />
       ))}
     </>

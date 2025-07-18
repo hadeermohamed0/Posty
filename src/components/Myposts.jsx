@@ -8,7 +8,7 @@ import { getAuth } from "firebase/auth";
 import { useAuth } from "../context/AuthContext";
 
 function MyPosts() {
-  const { posts, handleDelete } = useFetchPosts();
+  const { posts, handleDelete, fetchPosts } = useFetchPosts(null, () => {});
 
   const { currentUser } = useAuth();
   const myPosts = posts.filter((post) => post.userId === currentUser.uid);
