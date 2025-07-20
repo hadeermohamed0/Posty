@@ -27,7 +27,7 @@ function Home() {
     <div className="flex h-screen overflow-hidden">
       <Sidebar></Sidebar>
       <div
-        className="ml-64 flex-1 overflow-y-auto p-12 relative top-10"
+        className="ml-0 md:ml-64 flex-1 overflow-y-auto p-4 md:p-12 relative top-10"
         style={{
           backgroundImage: `url(${bg2Image})`,
           backgroundSize: "cover",

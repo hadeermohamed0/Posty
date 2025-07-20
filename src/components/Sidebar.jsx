@@ -10,8 +10,7 @@ export default function Sidebar() {
   const { handleLogout } = useLogout();
 
   return (
-    <div className="w-64 h-screen bg-[#1b3860] text-white flex flex-col justify-between py-6 fixed top-16 left-0 z-50">
-        
+    <div className="hidden md:flex w-64 h-screen bg-[#1b3860] text-white flex-col justify-between py-6 fixed top-16 left-0 z-50">
       {currentUser ? (
         <ul className="space-y-4 px-6">
           <li className="flex items-center gap-3 hover:text-amber-400 cursor-pointer">

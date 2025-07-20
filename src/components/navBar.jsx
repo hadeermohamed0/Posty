@@ -47,6 +47,7 @@ const NavBar = () => {
             </Link>
           </div>
         )}
+        
       </div>
     </div>
   );
